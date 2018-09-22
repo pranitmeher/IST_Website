@@ -1,0 +1,1561 @@
+/*<!--
+// Project 2 : Recreation of www.ist.rit.edu with jQuery
+// Author: Pranit Meher <pxm3417@rit.edu>
+// This file contains all the design related aspects of the HTML Page
+-->*/
+
+/*For top bar*/
+
+/* --------------------------------
+
+Primary style
+
+-------------------------------- */
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Hind", sans-serif;
+  color: #25283D;
+  /*background-color: #171818;*/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url("../assets/bg.jpg")no-repeat center center fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  text-decoration-color: white;
+}
+
+a {
+  color: #8F3985;
+  text-decoration: none;
+}
+
+/* -------------------------------- 
+
+1. Auto-Hiding Navigation - Simple
+
+-------------------------------- */
+.header_rit {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #171818;
+  /* Force Hardware Acceleration */
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+  color: #ffff;
+}
+.header_rit::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+.header_rit.is-hidden {
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+@media only screen and (min-width: 1024px) {
+  .header_rit {
+    height: 80px;
+  }
+}
+
+.header_rit .rit_logo_tiger,
+.header_rit .nav-trigger,
+.header_rit .div_top_title_text,
+.header_rit .div_top_title_search_box{
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+
+    /*TRY*/
+
+.sb_temp{
+    float: right;
+    padding: 2px;
+    margin: 0;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    /*filter: alpha(opacity=0);*/
+    /*opacity: 0.6;*/
+    border: white 1px solid;
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: #DE7E23;
+
+}
+     .div_top_title_text{
+
+       width: 100%;
+       /*float: left;*/
+    }
+    .top_title_text, .top_title_text_rit{
+      /*display: inline-block;*/
+      /*float: ;*/
+      text-align: center;
+      font-size: 3.0rem;
+      text-transform: uppercase;
+      color: #ffff;
+      font-weight: bold;
+    }
+
+    .top_title_text_rit{
+      color: #F36E21;
+      font-size: 1.9rem;
+      font-weight: lighter;
+    }
+
+    .wrapper {
+      margin: 0;
+      width:100%;
+      padding: 0;
+      /*float: left;*/
+      overflow: auto;
+      background: rgba(0,0,0,0.85);
+    }
+
+    .div_about{
+      align-self: center;
+      /*border-color: white;*/
+      /*border: 1px solid white;*/
+      padding: 3% 1%;
+      background: white;
+      margin:5% 9% 5% 9%;
+      /*max-width: 50%;*/
+      /*text-align: center;*/
+    }
+
+    .about_title{
+      text-align: center;
+      font-weight: bold;
+      font-size: 3.0rem;
+      font-family: "David Libre", serif;
+      text-transform: uppercase;
+    }
+
+    .about_hr{
+      width: 30%;
+      color: darkgray;
+    }
+
+    .about_description{
+      text-align: center;
+      font-size: 1.6rem;
+      max-width: 90%;
+      line-height: 1.4;
+      margin: 1em auto;
+      font-family: "David Libre", serif;
+    }
+
+    .about_quote{
+      text-align: center;
+      font-size: 1.6rem;
+      max-width: 70%;
+      line-height: 1.4;
+      margin: 1em auto;
+      font-family: "David Libre", serif;
+    }
+
+    .about_quote_author{
+      text-align: center;
+      font-style: italic;
+      font-size: 1.4rem;
+      max-width: 70%;
+      line-height: 1.3;
+      margin: 1em auto;
+      font-family: "David Libre", serif;
+      color:#F36E21;
+    }
+
+    .hr_rainbow_divider{
+      margin: 0;
+      border: none;
+      height: 6px;
+      width: 100%;
+      background-image: -webkit-linear-gradient(left, rgba(255,2,5,.5), rgba(137,11,138,.5), rgba(27,123,187,.5), rgba(47,195,44,.5), rgba(253,201,1,.5), rgba(255,91,2,.5), #ccc 45%, #ccc 55%, rgba(255,91,2,.5), rgba(253,201,1,.5), rgba(47,195,44,.5), rgba(27,123,187,.5), rgba(137,11,138,.5), rgba(255,2,5,.5));
+      background-image: -moz-linear-gradient(left, rgba(255,2,5,.5), rgba(137,11,138,.5), rgba(27,123,187,.5), rgba(47,195,44,.5), rgba(253,201,1,.5), rgba(255,91,2,.5), #ccc 45%, #ccc 55%, rgba(255,91,2,.5), rgba(253,201,1,.5), rgba(47,195,44,.5), rgba(27,123,187,.5), rgba(137,11,138,.5), rgba(255,2,5,.5));
+      background-image: -ms-linear-gradient(left, rgba(255,2,5,.5), rgba(137,11,138,.5), rgba(27,123,187,.5), rgba(47,195,44,.5), rgba(253,201,1,.5), rgba(255,91,2,.5), #ccc 45%, #ccc 55%, rgba(255,91,2,.5), rgba(253,201,1,.5), rgba(47,195,44,.5), rgba(27,123,187,.5), rgba(137,11,138,.5), rgba(255,2,5,.5));
+      background-image: -o-linear-gradient(left, rgba(255,2,5,.5), rgba(137,11,138,.5), rgba(27,123,187,.5), rgba(47,195,44,.5), rgba(253,201,1,.5), rgba(255,91,2,.5), #ccc 45%, #ccc 55%, rgba(255,91,2,.5), rgba(253,201,1,.5), rgba(47,195,44,.5), rgba(27,123,187,.5), rgba(137,11,138,.5), rgba(255,2,5,.5));
+    }
+
+    .div_top_title_search{
+      /*float: right;*/
+      text-align: center;
+      margin: 4% 1%;
+        z-index: 1;
+    }
+
+    .div_undergrad_degree{
+      background: white;
+      padding: 4%;
+      margin: 0;
+    }
+
+    .undergrad_degree_title{
+      text-align: center;
+      font-weight: bold;
+      font-size: 2.7rem;
+      font-family: "David Libre", serif;
+      text-transform: uppercase;
+    }
+
+    .undergrad_degree_hr{
+      width: 20%;
+      color: darkgray;
+    }
+
+    .undergrad_degree_div{
+      display: table;
+      align-items: center;
+      align-content: center;
+      align-self: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 5%;
+    }
+    .undergrad_degree_div_types{
+      width: 33.33%;
+      align-content: center;
+      float: left;
+      text-align: center;
+      align-self: center;
+      padding: 1%;
+
+    }
+
+    .undergrad_degree_type_title{
+      text-align: center;
+      font-size: 2.1rem;
+      max-width: 90%;
+      line-height: 1.4;
+      margin: 1em auto;
+      font-family: "David Libre", serif;
+    }
+
+    .undergrad_degree_type_description{
+      text-align: center;
+      /*font-family: "Comic Sans MS";*/
+      font-size: 1.9rem;
+      max-width: 90%;
+      line-height: 1.4;
+      margin: 1em auto;
+      font-family: "David Libre", serif;
+    }
+
+    .no-close .ui-dialog-titlebar-close {
+      display: none;
+    }
+
+    .modal_div{
+      /*background: rgba(0,0,0,0.3);*/
+      align-self: center;
+      align-items: center;
+      filter: Alpha(Opacity=90);
+      width: 80%
+    }
+    .modal_div_title{
+      text-align: center;
+      font-weight: bold;
+      font-size: 3.0rem;
+      font-family: "David Libre", serif;
+      text-transform: uppercase;
+      color:#F36E21;
+      margin: 5%;
+    }
+
+    .model_div_conc{
+      text-align: center;
+      font-weight: bold;
+      font-size: 2.5rem;
+      font-family: "David Libre", serif;
+      color: #25283D;
+    }
+
+    .model_div_hr{
+      width: 20%;
+      color: darkgray;
+    }
+
+    .model_div_learn{
+      font-size: 1.3rem;
+      font-family: "David Libre", serif;
+    }
+
+    .model_div_conc_val{
+      font-size: 2.3rem;
+      font-family: "David Libre", serif;
+      text-align: center;
+      margin: 5%;
+    }
+
+    .div_grad_degree{
+      padding: 4%;
+      margin: 0;
+      align-items: center;
+      align-self: center;
+      text-align: center;
+
+
+    }
+    .grad_degree_title{
+      text-align: center;
+      font-weight: bold;
+      font-size: 2.7rem;
+      font-family: "David Libre", serif;
+      text-transform: uppercase;
+      color: white;
+    }
+
+    .grad_degree_hr{
+      width: 20%;
+      color: lightgray;
+    }
+
+    .grad_degrees_div{
+      display: table;
+      align-items: center;
+      align-content: center;
+      align-self: center;
+      justify-content: center;
+      width: 100%;
+      margin-top: 5%;
+    }
+    .grad_degrees_div_types{
+      width: 33.33%;
+      align-content: center;
+      float: left;
+      text-align: center;
+      align-self: center;
+      padding: 1%;
+
+    }
+
+    .grad_degree_type_title{
+      text-align: center;
+      font-size: 2.1rem;
+      max-width: 90%;
+      line-height: 1.4;
+      margin: 1em auto;
+      font-family: "David Libre", serif;
+      color: white;
+    }
+
+    .grad_degree_type_description{
+      text-align: center;
+      /*font-family: "Comic Sans MS";*/
+      font-size: 1.9rem;
+      max-width: 90%;
+      line-height: 1.4;
+      margin: 1em auto;
+      font-family: "David Libre", serif;
+      color: white;
+    }
+
+    .div_grad_degree_certificate{
+      width: 60%;
+      padding: 0.8% 0% 0% 0%;
+      align-self: center;
+      margin: 0;
+    }
+
+    .div_grad_degree_hr{
+      width: 20%;
+      color: lightgray;
+    }
+
+    .div_grad_degree_title{
+      text-align: center;
+      font-weight: bold;
+      font-size: 2.6rem;
+      font-family: "David Libre", serif;
+      text-transform: uppercase;
+      color: white;
+      margin: 2%;
+    }
+
+    .div_grad_degree_cert{
+      text-align: center;
+      font-size: 2.0rem;
+      line-height: 1.4;
+      margin: 1em auto;
+      font-family: "David Libre", serif;
+      color: white;
+      font-weight: bold;
+    }
+
+    .div_undergrad_minor{
+      background: white;
+      padding: 4%;
+      margin: 0;
+      text-align: center;
+    }
+
+    .undergrad_minor_title{
+      text-align: center;
+      font-weight: bold;
+      font-size: 2.7rem;
+      font-family: "David Libre", serif;
+      text-transform: uppercase;
+    }
+
+    .undergrad_degree_minors_hr{
+      width: 20%;
+      color: darkgray;
+    }
+
+    .undergrad_degree_minors_expand{
+      margin-top: 2%;
+      text-align: center;
+      font-size: 1.5rem;
+      font-family: "David Libre", serif;
+      margin-bottom: 10px;
+    }
+
+    .tag_undergrad_minors_row1 .tag_undergrad_minors_row2 {
+      text-align: center;
+      align-items: center;
+      align-self: center;
+      align-content: center;
+      padding: 2px;
+      /*height: 400px;*/
+      margin: 0;
+      position: relative;
+    }
+
+    .tag_undergrad_minors_for_minor{
+      display: inline-table;
+      margin: 2%;
+      width: 17%;
+      height: 200px;
+      align-items: center;
+      text-align: center;
+      -webkit-transition: 0.6s;
+      transition: 0.6s;
+    }
+
+    .tag_undergrad_minors_for_minor:hover{
+      background:#59f;
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+    }
+    .tag_undergrad_minors_for_minor_title{
+      text-align: center;
+      font-size: 1.5rem;
+      font-family: "David Libre", serif;
+      color: white;
+      /*padding: 10px;*/
+      margin-top: 10px;
+    }
+
+    .ugminors_modal_div_title{
+      text-align: center;
+      font-size: 2.5rem;
+      font-family: "David Libre", serif;
+      color: red;
+      padding: 5px;
+      margin-top: 5px;
+    }
+
+    .ugminors_modal_div_description{
+      text-align: center;
+      font-size: 1.5rem;
+      font-family: "David Libre", serif;
+      /*color: red;*/
+      padding: 5px;
+      margin-top: 5px;
+    }
+
+    .ugminors_modal_div_fac{
+      text-align: center;
+      font-size: 1.6rem;
+      font-family: "David Libre", serif;
+      color: green;
+      padding: 2px;
+      margin-top: 5px;
+    }
+
+    .ugminors_modal_div_div_span{
+      text-align: center;
+      /*height: 15px;*/
+      width: 100%;
+      margin-top: 5px;
+        padding: 1%;
+      background: red;
+    }
+    .ugminors_modal_div_span{
+      text-align: center;
+      font-size: 1.9rem;
+      font-family: "David Libre", serif;
+      color: white;
+      padding: 2%;
+      /*height: 20px;*/
+      width: 100%;
+    }
+
+    .accordian_div{
+      text-align: center;
+      padding: 1%;
+      margin: 1%;
+    }
+    /*.ugminors_modal_div_div_course{*/
+      /*border: 1px;*/
+      /*border-color: black;*/
+      /*background: #D1D1D1;*/
+      /*height: 200px;*/
+    /*}*/
+
+    .ugminors_modal_div_course_div{
+      text-align: center;
+      font-size: 1.8rem;
+      font-family: "David Libre", serif;
+      display: table;
+      padding: 20px;
+      /*height: auto;*/
+      /*height: 600;*/
+    }
+
+
+
+    .ugminors_modal_div_course{
+      text-align: center;
+      font-size: 1.8rem;
+      font-family: "David Libre", serif;
+      padding: 20px;
+      height: auto;
+    }
+
+    .ugminors_modal_div_note{
+      text-align: center;
+      font-size: 1.3rem;
+      font-family: "David Libre", serif;
+      color: red;
+      font-style: italic;
+      margin-top: 5px;
+    }
+
+    .ugminors_modal_div_course_modal_title{
+      text-align: center;
+      font-size: 2.9rem;
+      font-family: "David Libre", serif;
+      color: red;
+        padding: 1%;
+    }
+
+    .ugminors_modal_div_course_modal_desc{
+      text-align: center;
+      font-size: 2.1rem;
+      font-family: "David Libre", serif;
+      color: blue;
+    }
+
+    .div_employment{
+      text-align: center;
+      align-items: center;
+      align-content: center;
+    }
+
+    .div_employment_title{
+      text-align: center;
+      font-size: 3.1rem;
+      font-family: "David Libre", serif;
+      color: white;
+      margin-top: 3%;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .div_employment_hr{
+      width: 6%;
+      color: wheat;
+    }
+
+    .div_employment_employment_content{
+      text-align: center;
+      font-size: 2.5rem;
+      font-family: "David Libre", serif;
+      color: #DE7E23;
+      margin-top: 3%;
+    }
+
+    .div_employment_employment_desc{
+      text-align: center;
+      align-content: center;
+      font-size: 2.1rem;
+      font-family: "David Libre", serif;
+      color: white;
+      margin: 1.5%;
+      padding: 3px 5%;
+
+    }
+
+    .div_employment_div_stats_div{
+      display: inline-table;
+      margin: 2%;
+      width: 17%;
+      height: 150px;
+      align-items: center;
+      text-align: center;
+      padding: 1%;
+     }
+
+    .div_employment_div_stats_val{
+      text-align: center;
+      align-content: center;
+      font-size: 2.4rem;
+      font-family: "David Libre", serif;
+      color: white;
+      margin: 2%;
+
+    }
+
+    .div_employment_div_stats_text{
+      text-align: center;
+      align-content: center;
+      font-size: 1.6rem;
+      font-family: "David Libre", serif;
+      color: white;
+      margin: 1%;
+    }
+
+    .div_employment_emp_car{
+      text-align: center;
+      font-size: 2.5rem;
+      font-family: "David Libre", serif;
+      color: #DE7E23;
+      margin-top: 3%;
+    }
+
+    .div_employment_emp_car_div{
+      display: inline-flex;
+      align-content: center;
+      text-align: center;
+      margin: 0.5%;
+      padding-bottom: 3%;
+    }
+
+    .div_employment_emp_car_div_names{
+      /*text-align: center;*/
+      font-size: 1.9rem;
+      font-family: "David Libre", serif;
+      color: white;
+      /*margin: 1.5%;*/
+      padding: 0 50px;
+    }
+    .div_map{
+      background: white;
+      padding: 2% 0;
+      margin: 0%;
+      text-align: center;
+    }
+    .div_map_title{
+      text-align: center;
+      font-weight: bold;
+      font-size: 2.7rem;
+      font-family: "David Libre", serif;
+      text-transform: uppercase;
+    }
+    .div_map_title_hr{
+      width: 18%;
+    }
+    .div_map_add_map{
+      text-align: center;
+      height: 350px;
+      margin: 2% 0;
+      padding: 0;
+    }
+
+    .div_map_both_tables{
+        /*display: inline-table;*/
+        align-content: center;
+        text-align: center;
+        margin: 0.5%;
+        padding-bottom: 3%;
+        justify-content: center;
+
+    }
+
+    .div_map_table{
+      display: inline-flex;
+      margin: 2%;
+      width: 25%;
+      height: 150px;
+      align-items: center;
+      text-align: center;
+      align-self: center;
+      align-content: center;
+      -webkit-transition: 0.6s;
+      transition: 0.6s;
+      justify-content: center;
+    }
+
+    .div_map_table:hover{
+      /*background:#59f;*/
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+    }
+
+    .div_people{
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        margin: 2%;
+        justify-content: center;
+        padding: 1% 0;
+    }
+    .div_people_title{
+        text-align: center;
+        font-weight: bold;
+        font-size: 2.7rem;
+        font-family: "David Libre", serif;
+        text-transform: uppercase;
+        color: white;
+    }
+
+    .div_people_gridtabs{
+        align-content: center;
+        align-self: center;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        /*display: inline-flex;*/
+        margin: 2% 2%;
+    }
+    .div_people_fac_staff{
+        background: rgba(255,255,255,0.6);
+        width: 25%;
+    }
+
+    .div_people_gridtabs_grid_cell{
+        display: inline-table;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        margin: 0.5%;
+        justify-content: center;
+        width: 20%;
+        border-radius: 1rem;
+        box-sizing: border-box;
+        border: 2px solid white;
+        padding: 20px;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+    }
+    .div_people_gridtabs_grid_cell:hover{
+        /*background:#00D603;*/
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+
+    .div_people_gridtabs_grid_cell p{
+        color:#00D603;
+        font-size: 1.7rem;
+        font-family: "David Libre", serif;
+
+    }
+
+    .div_people_gridtabs_grid_cell h3{
+        color:white;
+        font-size: 1.4rem;
+        font-family: "David Libre", serif;
+
+    }
+
+    .div_people_modal_div{
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        margin: 2%;
+        justify-content: center;
+    }
+
+    .div_people_modal_name{
+        color:red;
+        font-size: 2.8rem;
+        font-family: "David Libre", serif;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        margin: 0.5%;
+        justify-content: center;
+    }
+
+    .div_people_modal_title{
+        color:gray;
+        font-size: 2.2rem;
+        font-family: "David Libre", serif;
+    }
+
+    .div_people_modal_hr{
+        /*width: 80%;*/
+        color: #003eff;
+        margin: 1%;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .div_people_modal_image{
+        display: inline-flex;
+        float: left;
+        width: 40%;
+        margin: 2%;
+    }
+
+    .div_people_modal_contact{
+        display: inline-table;
+        float: right;
+        margin: 2%;
+    }
+
+    .div_faculty_research{
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        padding: 1% 0;
+        background: white;
+    }
+
+    .div_fac_research_title{
+        text-align: center;
+        font-weight: bold;
+        font-size: 2.7rem;
+        font-family: "David Libre", serif;
+        text-transform: uppercase;
+        margin: 1%;
+    }
+
+    .div_faculty_research_gridtabs{
+        align-content: center;
+        align-self: center;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        /*display: inline-flex;*/
+        margin: 2% 2%;
+
+    }
+    .div_faculty_research_interest_fac{
+        background: rgba(255,255,255,0.6);
+        width: 25%;
+    }
+
+    .div_faculty_research_gridtabs_cell{
+        display: inline-table;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        margin: 1%;
+        justify-content: center;
+        width: 10%;
+        height: 10%;
+        border-radius: 1rem;
+        /*box-sizing: border-box;*/
+        border: 2px solid #DE7E23;
+        /*background: #59f;*/
+        padding: 6px;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+    }
+    .div_faculty_research_gridtabs_cell:hover{
+        background:#00D603;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    .div_faculty_research_gridtabs_cell p{
+        /*color:white;*/
+        font-size: 1.7rem;
+        font-family: "David Libre", serif;
+
+    }
+
+    .div_research_modal_div{
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        margin: 2%;
+        justify-content: center;
+
+    }
+
+    .div_research_modal_name{
+        color:red;
+        font-size: 2.8rem;
+        font-family: "David Libre", serif;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        margin: 0.5%;
+        justify-content: center;
+    }
+
+    .  .div_research_modal_hr{
+        /*width: 80%;*/
+        color: #003eff;
+        margin: 1%;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .div_research_modal_li{
+        text-align: left;
+    }
+
+    .div_student_resources{
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        padding: 1% 0;
+    }
+
+    .div_student_resources_div{
+        text-align: center;
+        align-items: center;
+        align-self: center;
+        align-content: center;
+        padding: 2px;
+        /*height: 400px;*/
+        margin: 0;
+        position: relative;
+    }
+
+    .div_student_resources_div_cell{
+        display: inline-table;
+        margin: 2%;
+        width: 17%;
+        height: 200px;
+        align-items: center;
+        text-align: center;
+        -webkit-transition: 0.6s;
+        transition: 0.6s;
+        background: #DE7E23;
+    }
+
+    .div_student_resources_div_cell:hover{
+        background:#59f;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    .div_student_resources_div_cell_title{
+        text-align: center;
+        font-size: 2.7rem;
+        font-family: "David Libre", serif;
+        justify-content: center;
+        align-self: center;
+        align-content: center;
+        align-items: center;
+        color: white;
+        /*padding: 50%;*/
+        margin-top: 50px;
+    }
+
+    .div_resource_modal_div{
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        margin: 2%;
+        justify-content: center;
+    }
+
+    .div_resource_modal_name{
+        color:magenta;
+        font-size: 2.8rem;
+        font-family: "David Libre", serif;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        margin: 0.5%;
+        justify-content: center;
+    }
+    .div_stud_res_details_h1{
+        color: red;
+        font-size: 2.0rem;
+        margin: 1%;
+        text-align: left;
+    }
+
+    .div_stud_res_details_desc{
+        /*color: red;*/
+        font-size: 1.4rem;
+        margin: 1%;
+        text-align: left;
+
+    }
+    .div_stud_res_details_name{
+        color: mediumblue;
+        font-size: 1.7rem;
+        margin: 1%;
+        text-align: left;
+    }
+
+    .div_social{
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        padding: 1% 0;
+        background: white;
+    }
+
+    .div_social_title{
+        text-align: center;
+        font-weight: bold;
+        font-size: 2.7rem;
+        font-family: "David Libre", serif;
+        text-transform: uppercase;
+        margin: 1%;
+    }
+
+    .div_social_hr{
+        width: 10%;
+        color: black;
+    }
+
+    .div_footer{
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        padding: 1% 0;
+        background: black;
+    }
+
+    .div_footer_div_left{
+        display: inline-table;
+        float: left;
+        padding: 2%;
+        width: 25%;
+    }
+
+    .div_footer_div_center{
+        display: inline-table;
+        float: left;
+        padding: 2%;
+        width: 50%;
+
+    }
+
+    .div_footer_div_right{
+        display: inline-table;
+        float: left;
+        padding: 2%;
+        width: 25%;
+
+    }
+
+    .div_footer_div_left_items{
+        /*background: white;*/
+        color: #DE7E23;
+        font-size: 2.0rem;
+        font-weight: lighter;
+        -webkit-transition: 0.4s;
+        margin: 1%;
+        transition: 0.4s;
+        width: 60%;
+
+    }
+
+    .div_footer_div_left_items:hover{
+        background:#DE7E23;
+        color: black;
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    .div_footer_div_left_hr{
+        color: white;
+        width: 80%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .div_footer_div_center_copy{
+        font-size: 1.7rem;
+        font-weight: lighter;
+        color:#DE7E23;
+        padding: 2%;
+    }
+    .div_footer_div_right_news_title{
+        font-size: 2.7rem;
+        font-weight: lighter;
+        color:#DE7E23;
+        padding-top: 10%;
+        transition: 0.4s;
+        width: 60%;
+        text-transform: uppercase;
+
+        /*margin-top: 5%;*/
+    }
+    .div_footer_div_right_news_title:hover{
+        /*background:#DE7E23;*/
+        /*color: black;*/
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    .div_news_modal_div{/*
+        text-align: center;
+        align-items: center;
+        align-content: center;*/
+        margin: 2%;
+        justify-content: center;
+    }
+
+    .div_news_modal_h1{
+        color: red;
+        font-size: 2.9rem;
+        margin: 1%;
+        text-align: center;
+    }
+
+    .div_news_modal_date{
+        font-size: 1.5rem;
+        margin: 1%;
+        text-align: right;
+        font-style: italic;
+    }
+
+    .div_news_modal_title{
+        font-size: 2.1rem;
+        margin: 1%;
+        text-align: left;
+    }
+    .div_news_modal_description{
+        font-size: 1.5rem;
+        margin: 1%;
+        /*text-align: left;*/
+        justify-content: left;
+    }
+
+    .div_news_modal_hr{
+        width: 90%;
+        color: #DE7E23;
+    }
+    .div_modal_contact_us{
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        padding: 2%
+    }
+/*TRY*/
+
+.header_rit .rit_logo_tiger {
+  left: 0.5%;
+  top:65%;
+  z-index: 10;
+  /*width: 30%;*/
+  float: left;
+}
+.header_rit .rit_logo_tiger a, .header_rit .rit_logo_tiger img {
+  display: block;
+  height: auto;
+  width: 50%;
+}
+
+.header_rit .nav-trigger {
+  /* vertically align its content */
+  display: table;
+  height: 100%;
+  padding: 0 1em;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #25283D;
+  font-weight: bold;
+  /*right: 0;*/
+  border-left: 1px solid #f2f2f2;
+}
+.header_rit .nav-trigger span {
+  /* vertically align inside parent element */
+  display: table-cell;
+  vertical-align: middle;
+}
+.header_rit .nav-trigger em, .header_rit .nav-trigger em::after, .header_rit .nav-trigger em::before {
+  /* this is the menu icon */
+  display: block;
+  position: relative;
+  height: 2px;
+  width: 22px;
+  background-color: #25283D;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.header_rit .nav-trigger em {
+  /* this is the menu central line */
+  margin: 6px auto 14px;
+  -webkit-transition: background-color .2s;
+  transition: background-color .2s;
+}
+.header_rit .nav-trigger em::before, .header_rit .nav-trigger em::after {
+  position: absolute;
+  content: '';
+  left: 0;
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+}
+.header_rit .nav-trigger em::before {
+  /* this is the menu icon top line */
+  -webkit-transform: translateY(-6px);
+      -ms-transform: translateY(-6px);
+          transform: translateY(-6px);
+}
+.header_rit .nav-trigger em::after {
+  /* this is the menu icon bottom line */
+  -webkit-transform: translateY(6px);
+      -ms-transform: translateY(6px);
+          transform: translateY(6px);
+}
+@media only screen and (min-width: 1024px) {
+  .header_rit .nav-trigger {
+    display: none;
+  }
+}
+
+.header_rit.nav-open .nav-trigger em {
+  /* transform menu icon into a 'X' icon */
+  background-color: rgba(255, 255, 255, 0);
+}
+.header_rit.nav-open .nav-trigger em::before {
+  /* rotate top line */
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.header_rit.nav-open .nav-trigger em::after {
+  /* rotate bottom line */
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+/*// **********************************/
+.cd-primary-nav {
+  display: inline-block;
+  float: right;
+  height: 100%;
+  padding-right: 5%;
+}
+.cd-primary-nav > ul {
+  position: absolute;
+  z-index: 2;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  display: none;
+  box-shadow: 0 14px 20px rgba(0, 0, 0, 0.2);
+}
+.cd-primary-nav > ul a {
+  /* target primary-nav links */
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 5%;
+  color: #25283D;
+  font-size: 1.8rem;
+  border-top: 1px solid #f2f2f2;
+}
+.cd-primary-nav > ul a:hover, .cd-primary-nav > ul a.active {
+  color: #8F3985;
+}
+@media only screen and (min-width: 1024px) {
+  .cd-primary-nav {
+    /* vertically align its content */
+    display: table;
+  }
+  .cd-primary-nav > ul {
+    /* vertically align inside parent element */
+    display: table-cell;
+    vertical-align: middle;
+    /* reset mobile style */
+    position: relative;
+    width: auto;
+    top: 0;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+  }
+  .cd-primary-nav > ul::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+  .cd-primary-nav > ul li {
+    display: inline-block;
+    float: left;
+    margin-right: 1.5em;
+  }
+  .cd-primary-nav > ul li:last-of-type {
+    margin-right: 0;
+  }
+  .cd-primary-nav > ul a {
+    /* reset mobile style */
+    height: auto;
+    line-height: normal;
+    padding: 0;
+    border: none;
+  }
+}
+
+.nav-open .cd-primary-nav ul,
+.cd-primary-nav ul:target {
+  /*
+  	show primary nav - mobile only
+  	:target is used to show navigation on no-js devices
+  */
+  display: block;
+}
+@media only screen and (min-width: 1024px) {
+  .nav-open .cd-primary-nav ul,
+  .cd-primary-nav ul:target {
+    display: table-cell;
+  }
+}
+
+/*// **********************************/
+
+/* -------------------------------- 
+
+2. Auto-Hiding Navigation - with Sub Nav
+
+-------------------------------- */
+.same_page_navigator {
+  position: relative;
+  z-index: 1;
+  clear: both;
+  width: 100%;
+  height: 50px;
+  background-color: #25283D;
+  /* Force Hardware Acceleration */
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+.same_page_navigator::after {
+  /* gradient on the right - to indicate it's possible to scroll */
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 35px;
+  background: transparent;
+  background: -webkit-linear-gradient(right, #25283D, rgba(37, 40, 61, 0));
+  background: linear-gradient(to left, #25283D, rgba(37, 40, 61, 0));
+  pointer-events: none;
+  -webkit-transition: opacity .2s;
+  transition: opacity .2s;
+}
+.same_page_navigator.nav-end::after {
+  opacity: 0;
+}
+.same_page_navigator ul, .same_page_navigator li, .same_page_navigator a {
+  height: 100%;
+}
+.same_page_navigator ul {
+  /* enables a flex context for all its direct children */
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 4%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.same_page_navigator ul::after {
+  clear: both;
+  content: "";
+  display: block;
+    z-index: 100;
+
+}
+.same_page_navigator li {
+  display: inline-block;
+    z-index: 100;
+    float: left;
+  /* do not shrink - elements float on the right of the element */
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+}
+.same_page_navigator li:last-of-type {
+  padding-right: 20px;
+}
+.same_page_navigator a {
+  display: block;
+  color: #ffffff;
+  opacity: .6;
+  line-height: 50px;
+  padding: 0 1em;
+}
+.same_page_navigator a:hover, .same_page_navigator a.active {
+  opacity: 1;
+}
+@media only screen and (min-width: 1024px) {
+  .same_page_navigator {
+    height: 50px;
+    overflow: visible;
+  }
+  .same_page_navigator ul {
+    /* reset mobile style */
+    display: block;
+    text-align: center;
+  }
+  .same_page_navigator li {
+    /* reset mobile style */
+    float: none;
+    -webkit-flex-shrink: 1;
+        -ms-flex-negative: 1;
+            flex-shrink: 1;
+  }
+  .same_page_navigator a {
+    line-height: 50px;
+  }
+  .same_page_navigator a.active {
+    box-shadow: inset 0 -3px #8F3985;
+  }
+}
+
+/* -------------------------------- 
+
+3. Auto-Hiding Navigation - with Sub Nav + Hero Image
+
+-------------------------------- */
+.same_page_navigator.fixed {
+  position: fixed;
+  top: 60px;
+}
+.same_page_navigator.slide-up {
+  -webkit-transform: translateY(-60px);
+      -ms-transform: translateY(-60px);
+          transform: translateY(-60px);
+}
+@media only screen and (min-width: 1024px) {
+  .same_page_navigator.fixed {
+    top: 80px;
+    /* fixes a bug where nav and subnab move with a slight delay */
+    box-shadow: 0 -6px 0 #25283D;
+  }
+  .same_page_navigator.slide-up {
+    -webkit-transform: translateY(-80px);
+        -ms-transform: translateY(-80px);
+            transform: translateY(-80px);
+  }
+}
+
+/*// **********************************/
+
+/* --------------------------------
+
+Main content
+
+-------------------------------- */
+.main_content {
+  /*padding: 60px 5% 2em;*/
+  overflow: hidden;
+  /*text-align: center;*/
+
+}
+.main_content.sub-nav {
+  /* to be used if there is sub nav */
+  padding-top: 110px;
+}
+.main_content.sub-nav-hero {
+  /* to be used if there is hero image + subnav */
+  padding-top: 0;
+}
+.main_content.sub-nav-hero.secondary-nav-fixed {
+  margin-top: 50px;
+}
+
+
+/*// **********************************/
+
+
+.main_content :target::before,
+.main_content :target::before {
+  display: block;
+  content: "";
+  margin-top: -50px;
+  height: 50px;
+  visibility: hidden;
+}
+@media only screen and (min-width: 1024px) {
+  .main_content :target::before,
+  .main_content :target::before {
+    margin-top: -70px;
+    height: 70px;
+  }
+}
+
+/* -------------------------------- 
+
+Intro Section
+
+-------------------------------- */
+.front_image_main {
+  /* vertically align its content */
+  display: table;
+  width: 100%;
+  margin-top: 60px;
+  height: 300px;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url("../assets/rit.jpg");
+}
+.front_image_main .front_image_main_content {
+  /* vertically align inside parent element */
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+@media only screen and (min-width: 768px) {
+  .front_image_main {
+    height: 400px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .front_image_main {
+    height: 600px;
+    margin-top: 80px;
+  }
+}

@@ -1,0 +1,192 @@
+<!--
+// Project 2 : Recreation of www.ist.rit.edu with jQuery
+// Author: Pranit Meher <pxm3417@rit.edu>
+// This file is the main file or the Homepage
+-->
+
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://fonts.googleapis.com/css?family=David+Libre|Hind:400,700" rel="stylesheet">
+	<script src="js/jquery-latest.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/jquery-ui.css">
+	<link rel="stylesheet" href="css/gridtab.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.css"/>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+	<script src="js/downloadData.js"></script>
+	<script src="js/jquery-ui.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD735QlFMK4TOpKmkjmNcv34lBrnj_I-uU&callback=make_map" async defer></script>
+	<script src="js/gridtab.js"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.js"></script>
+
+
+    <title>Pranit's IST Website</title>
+</head>
+
+<body>
+
+	<header class="header_rit">
+		<div class="rit_logo_tiger">
+			<a href="http://www.rit.edu">
+				<img src="assets/tiger_1.png" alt="Logo" href="http://www.rit.edu">
+			</a>
+		</div>
+
+		<div class="div_top_title_text">
+			<h2 class = "top_title_text" id = "top_title_text">INFORMATION SCIENCES AND TECHNOLOGIES</h2>
+			<h2 class="top_title_text_rit" id = "top_title_text_rit">Rochester Institute of Technology</h2>
+		</div>
+		<div class ="div_top_title_search" >
+			<input class = "sb_temp" id = "sb_temp" type="text" placeholder="search RIT"/>
+		</div>
+
+        <nav class="cd-primary-nav">
+
+            <a href="#cd-navigation" class="nav-trigger">
+			<span>
+				<em aria-hidden="true"></em>
+				Menu
+			</span>
+            </a> <!-- .nav-trigger -->
+        </nav>
+	</header>
+
+	<div id = "wrapper" class = "wrapper">
+
+		<section class="front_image_main">
+
+			<div class="front_image_main_content">
+			</div>
+
+		</section>
+
+		<nav class="same_page_navigator">
+			<ul>
+				<li><a class="active" href="#div_about">About</a></li>
+				<li><a class="change_me" href="#div_undergrad_degree" >Undergraduate Degrees</a></li>
+				<li><a class="change_me" href="#div_grad_degree">Graduate Degrees</a></li>
+				<li><a class="change_me" href="#div_undergrad_minor">Undergraduate Minors</a></li>
+				<li><a class="change_me" href="#div_people">People and Research</a></li>
+				<li><a class="change_me" href="#div_student_resources">Resources</a></li>
+				<li><a class="change_me" href="#div_footer">Contact Us</a></li>
+			</ul>
+		</nav>
+
+		<main class="main_content sub-nav-hero">
+
+			<div>
+				<div class="div_about" id = "div_about"></div>
+                <hr class = 'hr_rainbow_divider'>
+                <div class="div_undergrad_degree" id = "div_undergrad_degree">
+
+					<h1 class = "undergrad_degree_title">Our Undergraduate Degrees</h1>
+					<hr class="undergrad_degree_hr">
+					<div class="undergrad_degree_div">
+
+						<div class="undergrad_degree_div_types" id = "undergrad_degree_div_types_1"></div>
+						<div class="undergrad_degree_div_types" id = "undergrad_degree_div_types_2"></div>
+						<div class="undergrad_degree_div_types" id = "undergrad_degree_div_types_3"></div>
+
+					</div>
+					<div id='modal_div' class="modal_div"></div>
+
+                    <div id='modal_div_2' class="modal_div"></div>
+
+                </div>
+				<hr class = 'hr_rainbow_divider'>
+				<div class="div_grad_degree" id = "div_grad_degree">
+
+                    <h1 class = "grad_degree_title">Our Graduate Degrees</h1>
+                    <hr class="grad_degree_hr">
+                    <div class="grad_degrees_div">
+
+                        <div class="grad_degrees_div_types" id = "grad_degree_div_types_1"></div>
+                        <div class="grad_degrees_div_types" id = "grad_degree_div_types_2"></div>
+                        <div class="grad_degrees_div_types" id = "grad_degree_div_types_3"></div>
+
+                    </div>
+
+                </div>
+				<hr class="hr_rainbow_divider">
+				<div class="div_undergrad_minor" id = "div_undergrad_minor">
+                    <h1 class = "undergrad_minor_title">Our Undergraduate Minors</h1>
+                    <hr class="undergrad_degree_minors_hr">
+                </div>
+				<hr class="hr_rainbow_divider">
+				<div class="div_employment" id = "div_employment"></div>
+				<hr class="hr_rainbow_divider">
+
+				<div class="div_map" id = "div_map">
+                    <h1 class = "div_map_title">Where Our Students Work</h1>
+                    <hr class="div_map_title_hr">
+                    <h5>Click a marker to learn more about the jobs at that location</h5>
+                    <div class="div_map_add_map" id = "div_map_add_map"></div>
+                    <p>To view employment and coop history of our students, click below.</p>
+
+
+                </div>
+
+				<hr class="hr_rainbow_divider">
+
+				<div class="div_people" id = "div_people">
+					<h1 class = "div_people_title">Our People</h1>
+					<h5 style="color: white">To view more about our faculty and staff, click below.</h5>
+					<div class = "div_people_gridtabs">
+						<dl id="gridtab-1">
+							<dt><h1 style="font-size: 30px;color: #DE7E23">Faculty</h1></dt>
+							<dd id = "div_people_fac" class="div_people_fac_staff"></dd>
+
+							<dt><h1 style="font-size: 30px;color: #DE7E23">Staff</h1></dt>
+							<dd id = "div_people_staff" class="div_people_fac_staff"></dd>
+						</dl>
+					</div>
+
+				</div>
+
+				<hr class="hr_rainbow_divider">
+
+				<div class="div_faculty_research" id = "div_faculty_research">
+					<h1 class = "div_fac_research_title">Faculty Research</h1>
+					<h5>Click the tabs below to explore our publications by Area of interest and by faculty</h5>
+					<div class = "div_faculty_research_gridtabs">
+						<dl id="gridtab-2">
+							<dt><h1 style="font-size: 30px;">Areas of Interest</h1></dt>
+							<dd id = "div_faculty_research_interest" class="div_faculty_research_interest_fac"></dd>
+
+							<dt><h1 style="font-size: 30px;">Lookup by Faculty</h1></dt>
+							<dd id = "div_faculty_research_fac" class="div_faculty_research_interest_fac"></dd>
+						</dl>
+					</div>
+				</div>
+			<!--	<hr class="hr_rainbow_divider">
+				<div class="div_faculty_research_lookup" id = "div_faculty_research_lookup"></div>-->
+				<hr class="hr_rainbow_divider">
+				<div class="div_student_resources" id = "div_student_resources">
+					<h1 class = "div_people_title">Student Resources</h1>
+					<h5 style="color: white">Click on any of the links for a quick access to our resources.</h5>
+<!--					<div class="all_studs" id="current_studs">Current Students</div>
+					<div class="all_studs" id="prospective_studs">Prospective Students</div>
+					<div class="all_studs" id="change_studs">Change of Program Students</div>-->
+				</div>
+				<hr class="hr_rainbow_divider">
+
+				<div class="div_social" id = "div_social">
+					<h1 class = "div_social_title">our social presence</h1>
+					<hr class="div_social_hr">
+				</div>
+
+				<hr class="hr_rainbow_divider">
+				<div class="div_footer" id = "div_footer"></div>
+			</div>
+		</main>
+
+	</div>
+
+</body>
+</html>
